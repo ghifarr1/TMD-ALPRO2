@@ -1,0 +1,163 @@
+========================================================
+============ Dokumentasi Rancangan TMD DBMS ============
+========================================================     
+Tema TMD : Manajemen Inventaris Peralatan Kantor
+By : Abdurrahman Al Ghifari
+NIM : 2300456
+kelas : Ilmu Komputer 2C2
+Institusi : Universitas Pendidikan Indonesia
+========================================================
+Deskripsi Tabel :
+Tabel 1 : Tabel Peralatan
+Field Tabel : ID_Peralatan (PK), Nama_Peralatan, Merek
+Tabel 2 : Tabel Peminjaman
+Field Tabel :  ID_Peminjaman (PK), ID_Peralatan (FK), Nama_Peminjam
+========================================================
+Contoh Design Tabel :
+[Tabel Peralatan]
+ID_Peralatan      Nama_Peralatan      Merek
+BK001             Pulpen              Sarasa
+BK002             Pensil              Kenko
+BK003             Spidol              Snowman
+BK004             TipeX               Joyko
+BK005             Penggaris           Pilot
+BK006             Gunting             Parker
+BK007             Staples             Zebra
+BK008             Lem                 Steadtler
+
+[Tabel Peminjaman]
+ID_Peminjaman      ID_Peralatan      Nama_Peminjam
+PJ001              BK001             Michael
+PJ002              BK002             Steven
+PJ003              BK003             Rahul
+PJ004              BK006             Abdul
+PJ005              BK008             Jessica
+========================================================
+Query Format :
+INPUT       --> [INPUT] [nama_tabel] [ID] [Field 1] [Field 2]               -> 5 kata
+SHOW        --> [SHOW] [nama_tabel/TABLES]                                  -> 2 kata
+UPDATE      --> [UPDATE] [nama_tabel] [ID] [nama_kolom] [value_pengganti]   -> 5 kata
+DELETE      --> [DELETE] [nama_tabel] [ID]                                  -> 3 kata
+JOIN Tabel  --> [JOIN] [nama_tabel 1] [nama_tabel 2]                        -> 3 kata
+SHOWS TABLE --> [SHOWS] [TABLES]                                            -> 2 kata
+========================================================
+Contoh Query Benar :
+INPUT Tperalatan BK009 Kertas Paperlane;
+SHOW Tpeminjaman;
+UPDATE Tperalatan BK007 Merek Pentel;
+DELETE Tpeminjaman PJ005;
+JOIN Tperalatan Tpeminjaman;
+SHOWS TABLES;
+========================================================
+Contoh Query Salah :
+// tidak ada titik koma
+INPUT Tperalatan BK009 Kertas Paperlane
+
+// query Salah
+apalah Tperalatan;
+
+// tidak bisa menambahkan data dgn id sama
+INPUT Tperalatan BK001 Kertas Paperlane;
+
+// id nya tidak ada
+DELETE Tpeminjaman 0000;
+
+// tidak bisa mengganti id karna unik
+UPDATE Tperalatan BK007 ID_Peralatan 11111;
+
+// query kurang
+DELETE Tpeminjaman;
+
+// query kelebihan
+INPUT Tperalatan BK009 Kertas Paperlane blabla;
+
+// tabel tidak ada
+UPDATE Tkantor BK007 Merek Pentel;
+
+// kolom tidak ada
+UPDATE Tperalatan BK007 apanih Pentel;
+
+// id foreign key tidak ditemukan
+INPUT Tpeminjaman PJ006 BK010 Udin;
+
+// tidak bisa hapus kalo id lagi jadi FK
+DELETE Tperalatan BK001;
+========================================================
+BONUS
+JOIN Tperalatan Tpeminjaman; --> query Benar
+JOIN Tperalatan Tapalah; --> query Salah
+========================================================
+Keluar dari Program
+EXIT;
+========================================================
+========================================================
+
+// ini define nya ditaro disini karna error huhu
+// ==========================================================
+// mendeklarasikan define untuk setiap error handling message
+// ==========================================================
+// // mendefine setiap pesan error
+// // pesan error jika tidak ada titik koma/eop
+// #define TITIKKOMA printf("[001] SQLSTATE ERROR: Syntax error, expect ';' in the end statement\n\n")
+// // pesan error jika query salah
+// #define WRONGQUERY printf("[002] SQLSTATE ERROR: Syntax error, check your syntax update for new query\n\n")
+// // pesan error jika ID yang diinput sudah ada
+// #define PRIMARYKEY printf("[003] SQLSTATE ERROR: ID already exist\n\n")
+// // pesan error jika ID yang diinput tidak ada(untuk delete/update)
+// #define WRONGPK printf("[004] SQLSTATE ERROR: ID not found\n\n")
+// // pesan error jika ingin melakukan update pada ID(tidak bisa karena unik)
+// #define UPDATEPK printf("[005] SQLSTATE ERROR: ID can't be changed\n\n")
+// // pesan error jika query kurang
+// #define QUERYKURANG printf("[006] SQLSTATE ERROR: Syntax error, deficient number of query\n\n")
+// // pesan error jika query kelebihan
+// #define QUERYLEBIH printf("[007] SQLSTATE ERROR: Syntax error, excess number of query\n\n")
+// // pesan error jika tabel tidak ada
+// #define TABLENOTFOUND printf("[008] SQLSTATE ERROR: Table not found\n\n")
+// // pesan error jika kolom tidak ada
+// #define COLNOTFOUND printf("[009] SQLSTATE ERROR: Coloumn not found\n\n")
+// // pesan error jika id FK tidak ditemukan
+// #define WRONGFK printf("[010] SQLSTATE ERROR: FOREIGN ID not found\n\n")
+// // pesan error jika menghapus id yang lagi jadi FK
+// #define USEDPK printf("[011] SQLSTATE ERROR: ID is on use in other table\n\n")
+// // pesan jika sukses eksekusi query
+// #define QUERYDONE printf("Query successfully execute, 1 row affected\n\n")
+// // pesan out dari db
+// #define BYE printf("Thank you Coder, Rest Well!\n\n")
+// ==========================================================
+
+    // Dokumentasi gambar animasi
+
+    printf("  ____  _           __  __      \n");
+    printf(" / ___|(_)_ __ __ _/ _|/ _| ___ \n");
+    printf("| |  _ | | '__/ _` | |_| |_ / _ \\\n");
+    printf("| |_| || | | | (_| |  _|  _|  __/\n");
+    printf(" \\____|_|_|  \\__,_|_| |_|  \\___|\n");
+    printf("    /\\___/\\   /\\___/\\           \n");
+    printf("   (  o o  ) (  o o  )          \n");
+    printf("    \\  >  /   \\  >  /           \n");
+
+
+    // Dokumentasi gambar selamat beristirahat
+
+        printf("    /\\___/\\   Selamat\n");
+    printf("   (  o o  )  Beristirahat!\n");
+    printf("   /  \\./  \\ /\n");
+    printf("  /  |   |  |\n");
+    printf(" |  \\|___|/ /\n");
+    printf(" |  |    | /\n");
+    printf(" |__|    |/\n");
+    printf("    ||  ||\n");
+
+    // Dokumentasi pesan berwarna
+
+     // Pesan error (merah)
+    printf("\033[1;31mError: Ini adalah pesan error.\033[0m\n");
+
+    // Pesan informasi (biru)
+    printf("\033[1;34mInfo: Ini adalah pesan informasi.\033[0m\n");
+
+    // Pesan peringatan (kuning)
+    printf("\033[1;33mPeringatan: Ini adalah pesan peringatan.\033[0m\n");
+
+    // Pesan sukses (hijau)
+    printf("\033[1;32mSukses: Ini adalah pesan sukses.\033[0m\n");
