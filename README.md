@@ -14,3 +14,5 @@ Tugas ini ditulis dalam format bahasa c dan dibuat dengan format 3 file dan 2 fi
   
 Pada kode ini bercerita tentang membuat sebuah Database Management System (DBMS) sederhana untuk mengolah data terkait pendataan peminjam dan peralatan kantor, dimana
 format input dan outpunya telah di spesifikasikan sesuai dengan dokumentasi yang tertera pada file dokumentasi.
+
+Untuk dapat mengoperasikan kode ini silahkan buka file DokumentasiTMD.txt =D
